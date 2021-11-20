@@ -15,3 +15,12 @@ conexao.commit()
 def insere_valores(programa: str, senha: str):
     c.execute(f'INSERT INTO dados VALUES ("{programa}", "{senha}")')
     conexao.commit()
+
+
+# função para excluir uma senha armazenada por meio do nome do programa
+def exclui_valores(programa: str):
+    try:
+        c.execute(f'DELETE FROM dados WHERE programa = "{programa}"')
+        conexao.commit()
+    except sqlite3.Error as erro:
+        print(erro)
