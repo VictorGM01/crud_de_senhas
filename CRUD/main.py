@@ -9,3 +9,9 @@ c.execute('CREATE TABLE IF NOT EXISTS dados (programa text, senha text)')
 
 # salva
 conexao.commit()
+
+
+# função para criar/inserir nova senha
+def insere_valores(programa: str, senha:str):
+    c.execute(f'INSERT INTO dados VALUES ({programa}, {senha})')
+    conexao.commit()
