@@ -10,5 +10,5 @@ class TesteCrud(TestCase):
         self.senha = "123456789"
         self.programa = "github"
 
-    def test_deve_inserir_uma_nova_senha_quando_a_funcao_insere_valores_eh_chamada(self):
+    def test_deve_inserir_uma_nova_senha_quando_a_funcao_insere_valores_for_chamada(self):
         insere_valores(self.programa, self.senha)
