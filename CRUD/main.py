@@ -1,5 +1,11 @@
 import sqlite3
 
 
-banco = sqlite3.connect("Senhas.bd")
-c = banco.cursor()
+conexao = sqlite3.connect("Senhas.bd")
+c = conexao.cursor()
+
+# Cria tabela para armazenar o nome do programa e a senha
+c.execute('CREATE TABLE IF NOT EXISTS dados (programa text, senha text)')
+
+# salva
+conexao.commit()
