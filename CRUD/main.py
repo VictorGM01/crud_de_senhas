@@ -15,8 +15,19 @@ conexao.commit()
 
 # função para criar/inserir nova senha
 def insere_valores(programa: str, senha: str):
-    c.execute(f'INSERT INTO dados VALUES ("{programa}", "{senha}")')
-    conexao.commit()
+    c.execute('SELECT programa FROM dados')
+    programas = c.fetchall()
+
+    lista_de_programas = []
+    for i in programas:
+        lista_de_programas.append(i[0])
+
+    if programa not in lista_de_programas:
+        c.execute(f'INSERT INTO dados VALUES ("{programa}", "{senha}")')
+        conexao.commit()
+
+    else:
+        print(f'A senha para "{programa}" já está cadastrada!')
 
 
 # função para excluir uma senha armazenada por meio do nome do programa
@@ -56,6 +67,7 @@ def leitura_de_valores_especificos(programa: str):
         print(erro)
 
 
+# função que retorna todos os dados armazenados no banco de dados
 def leitura_de_todas_as_senhas():
     try:
         c.execute('SELECT * FROM dados')
