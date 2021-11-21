@@ -43,3 +43,14 @@ def atualiza_valores(programa: str, nova_senha: str):
         conexao.commit()
     except sqlite3.Error as erro:
         print(erro)
+
+
+# função que possibilita a viisualização da senha do programa informado
+def leitura_de_valores_especificos(programa: str):
+    try:
+        c.execute(f'SELECT senha FROM dados WHERE programa = "{programa}"')
+        resultado = c.fetchall()
+        print(resultado[0][0])
+
+    except sqlite3.Error as erro:
+        print(erro)
