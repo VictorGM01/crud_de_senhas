@@ -54,3 +54,15 @@ def leitura_de_valores_especificos(programa: str):
 
     except sqlite3.Error as erro:
         print(erro)
+
+
+def leitura_de_todas_as_senhas():
+    try:
+        c.execute('SELECT * FROM dados')
+        resultado = c.fetchall()
+
+        for dados in resultado:
+            print(f'Programa: {dados[0]} - Senha: {dados[1]}')
+
+    except sqlite3.Error as erro:
+        print(erro)
