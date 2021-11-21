@@ -26,7 +26,7 @@ def exclui_valores(programa: str):
 
     resultados = []
     for res in resultado:
-        resultados.append(res)
+        resultados.append(res[0])
 
     if programa in resultados:
         c.execute(f'DELETE FROM dados WHERE programa = "{programa}"')
