@@ -1,5 +1,7 @@
 import sqlite3
 
+from excecoes import DelecaoInvalida
+
 
 conexao = sqlite3.connect("Senhas.bd")
 c = conexao.cursor()
@@ -22,5 +24,5 @@ def exclui_valores(programa: str):
     try:
         c.execute(f'DELETE FROM dados WHERE programa = "{programa}"')
         conexao.commit()
-    except sqlite3.Error as erro:
-        print(erro)
+    except sqlite3.Error:
+        raise DelecaoInvalida('Não foi possível realizar e deleção')
