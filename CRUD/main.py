@@ -34,3 +34,12 @@ def exclui_valores(programa: str):
 
     else:
         raise DelecaoInvalida('Não foi possível concluir a deleção')
+
+
+# função para atualizar a senha por meio do nome do programa
+def atualiza_valores(programa: str, nova_senha: str):
+    try:
+        c.execute(f'UPDATE dados SET senha = "{nova_senha}" WHERE programa = "{programa}"')
+        conexao.commit()
+    except sqlite3.Error as erro:
+        print(erro)
