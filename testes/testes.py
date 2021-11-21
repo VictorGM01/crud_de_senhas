@@ -1,6 +1,7 @@
 from unittest import TestCase
 
-from CRUD.main import insere_valores, exclui_valores, atualiza_valores,leitura_de_valores_especificos
+from CRUD.main import insere_valores, exclui_valores, atualiza_valores, leitura_de_valores_especificos, \
+    leitura_de_todas_as_senhas
 from CRUD.excecoes import DelecaoInvalida
 
 
@@ -28,3 +29,6 @@ class TesteCrud(TestCase):
 
     def test_deve_permitir_visualizar_uma_senha_por_meio_do_nome_de_um_programa_no_banco(self):
         leitura_de_valores_especificos('Facebook')
+
+    def test_deve_retornar_todas_as_senhas_armazenadas(self):
+        leitura_de_todas_as_senhas()
