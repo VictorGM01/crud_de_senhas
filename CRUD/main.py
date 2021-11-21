@@ -1,6 +1,6 @@
 import sqlite3
 
-from excecoes import DelecaoInvalida
+from CRUD.excecoes import DelecaoInvalida
 
 
 conexao = sqlite3.connect("Senhas.bd")
@@ -21,8 +21,16 @@ def insere_valores(programa: str, senha: str):
 
 # função para excluir uma senha armazenada por meio do nome do programa
 def exclui_valores(programa: str):
-    try:
+    c.execute('SELECT programa FROM dados')
+    resultado = c.fetchall()
+
+    resultados = []
+    for res in resultado:
+        resultados.append(res)
+
+    if programa in resultados:
         c.execute(f'DELETE FROM dados WHERE programa = "{programa}"')
         conexao.commit()
-    except sqlite3.Error:
-        raise DelecaoInvalida('Não foi possível realizar e deleção')
+
+    else:
+        raise DelecaoInvalida('Não foi possível concluir a deleção')
