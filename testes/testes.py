@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from CRUD.main import insere_valores, exclui_valores, atualiza_valores
+from CRUD.main import insere_valores, exclui_valores, atualiza_valores,leitura_de_valores_especificos
 from CRUD.excecoes import DelecaoInvalida
 
 
@@ -25,3 +25,6 @@ class TesteCrud(TestCase):
 
     def test_deve_permitir_atualizacao_de_senha_quando_a_funcao_atualiza_valores_for_chamada(self):
         atualiza_valores(self.programa, '141598')
+
+    def test_deve_permitir_visualizar_uma_senha_por_meio_do_nome_de_um_programa_no_banco(self):
+        leitura_de_valores_especificos('Facebook')
