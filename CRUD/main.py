@@ -15,16 +15,26 @@ conexao.commit()
 try:
     c.execute('''CREATE TABLE IF NOT EXISTS dados (nome_usuario text, programa text primary key, senha text,
     CONSTRAINT fk_usuario FOREIGN KEY(nome_usuario) REFERENCES usuario(nome_user))''')
-except sqlite3.Error as erro:
-    print(erro)
+except sqlite3.Error as er:
+    print(er)
 
 # salva
 conexao.commit()
 
 
+# função para criar novo usuário (útil para a GUI)
 def cria_usuario(nome: str, senha: str):
     c.execute(f'INSERT INTO usuario VALUES ("{nome}", "{senha}")')
     conexao.commit()
+
+
+# função para mudança de senha do usuário
+def atualiza_senha_usuario(nome: str, nova_senha: str):
+    try:
+        c.execute(f'UPDATE usuario SET senha_user = "{nova_senha}" WHERE nome_user = "{nome}"')
+        conexao.commit()
+    except sqlite3.Error as erro:
+        print(erro)
 
 
 # função para criar/inserir nova senha
@@ -88,7 +98,7 @@ def leitura_de_todas_as_senhas():
         resultado = c.fetchall()
 
         for dados in resultado:
-            print(f'Programa: {dados[0]} - Senha: {dados[1]}')
+            print(f'Programa: {dados[1]} - Senha: {dados[2]}')
 
     except sqlite3.Error as erro:
         print(erro)
