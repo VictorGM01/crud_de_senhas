@@ -7,25 +7,28 @@ conexao = sqlite3.connect("Senhas.bd")
 c = conexao.cursor()
 
 # Cria tabela para armazenar informações do usuário
-c.execute('CREATE TABLE IF NOT EXISTS usuario (nome_user text PRIMARY KEY, senha_user text)')
-conexao.commit()
+try:
+    c.execute('CREATE TABLE IF NOT EXISTS usuario (nome_user text PRIMARY KEY, senha_user text)')
+    conexao.commit()
+except sqlite3.Error as erro:
+    print(erro)
 
 # Cria tabela para armazenar o nome do programa e a senha
-
 try:
     c.execute('''CREATE TABLE IF NOT EXISTS dados (nome_usuario text, programa text primary key, senha text,
     CONSTRAINT fk_usuario FOREIGN KEY(nome_usuario) REFERENCES usuario(nome_user))''')
+    conexao.commit()
 except sqlite3.Error as er:
     print(er)
-
-# salva
-conexao.commit()
 
 
 # função para criar novo usuário (útil para a GUI)
 def cria_usuario(nome: str, senha: str):
-    c.execute(f'INSERT INTO usuario VALUES ("{nome}", "{senha}")')
-    conexao.commit()
+    try:
+        c.execute(f'INSERT INTO usuario VALUES ("{nome}", "{senha}")')
+        conexao.commit()
+    except sqlite3.Error as erro:
+        print(f'Não foi possível criar o usuário. Erro: {erro}')
 
 
 # função para mudança de senha do usuário
