@@ -12,8 +12,11 @@ conexao.commit()
 
 # Cria tabela para armazenar o nome do programa e a senha
 
-c.execute('''CREATE TABLE IF NOT EXISTS dados (nome_usuario text, programa text primary key, senha text,
- FOREIGN KEY(nome_usuario) REFERENCES usuario(nome_user))''')
+try:
+    c.execute('''CREATE TABLE IF NOT EXISTS dados (nome_usuario text, programa text primary key, senha text,
+    FOREIGN KEY(nome_usuario) REFERENCES usuario(nome_user))''')
+except sqlite3.Error as erro:
+    print(erro)
 
 # salva
 conexao.commit()
@@ -25,7 +28,7 @@ def cria_usuario(nome: str, senha: str):
 
 
 # função para criar/inserir nova senha
-def insere_valores(programa: str, senha: str):
+def insere_valores(usuario: str, programa: str, senha: str):
     c.execute('SELECT programa FROM dados')
     programas = c.fetchall()
 
@@ -34,7 +37,7 @@ def insere_valores(programa: str, senha: str):
         lista_de_programas.append(i[0])
 
     if programa not in lista_de_programas:
-        c.execute(f'INSERT INTO dados VALUES ("{programa}", "{senha}")')
+        c.execute(f'INSERT INTO dados VALUES ("{usuario}", "{programa}", "{senha}")')
         conexao.commit()
 
     else:
