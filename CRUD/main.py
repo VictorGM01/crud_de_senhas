@@ -6,8 +6,14 @@ from CRUD.excecoes import DelecaoInvalida
 conexao = sqlite3.connect("Senhas.bd")
 c = conexao.cursor()
 
+# Cria tabela para armazenar informações do usuário
+c.execute('CREATE TABLE IF NOT EXISTS usuario (nome_user text PRIMARY KEY, senha_user text)')
+conexao.commit()
+
 # Cria tabela para armazenar o nome do programa e a senha
-c.execute('CREATE TABLE IF NOT EXISTS dados (programa text primary key, senha text)')
+
+c.execute('''CREATE TABLE IF NOT EXISTS dados (nome_usuario text, programa text primary key, senha text,
+ FOREIGN KEY(nome_usuario) REFERENCES usuario(nome_user))''')
 
 # salva
 conexao.commit()
