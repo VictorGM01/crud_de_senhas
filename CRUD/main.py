@@ -14,7 +14,7 @@ conexao.commit()
 
 try:
     c.execute('''CREATE TABLE IF NOT EXISTS dados (nome_usuario text, programa text primary key, senha text,
-    FOREIGN KEY(nome_usuario) REFERENCES usuario(nome_user))''')
+    CONSTRAINT fk_usuario FOREIGN KEY(nome_usuario) REFERENCES usuario(nome_user))''')
 except sqlite3.Error as erro:
     print(erro)
 

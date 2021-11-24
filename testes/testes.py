@@ -1,7 +1,7 @@
 from unittest import TestCase
 
 from CRUD.main import insere_valores, exclui_valores, atualiza_valores, leitura_de_valores_especificos, \
-    leitura_de_todas_as_senhas
+    leitura_de_todas_as_senhas, cria_usuario
 from CRUD.excecoes import DelecaoInvalida
 
 
@@ -12,9 +12,13 @@ class TesteCrud(TestCase):
         self.senha = "123456789"
         self.programa = "github"
 
+    def test_deve_permitir_criar_novo_usuario(self):
+        cria_usuario('Teste', 'abcdefjh')
+
     def test_deve_inserir_uma_nova_senha_quando_a_funcao_insere_valores_for_chamada(self):
-        insere_valores(self.programa, self.senha)
-        insere_valores('Facebook', '123456')
+        insere_valores('Victor', self.programa, self.senha)
+        insere_valores('Victor', self.programa, self.senha)
+        insere_valores('Victor', 'Facebook', '123456')
 
     def test_deve_excluir_uma_senha_quando_a_funcao_exclui_valores_for_chamada(self):
         exclui_valores(self.programa)
