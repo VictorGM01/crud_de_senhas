@@ -4,8 +4,9 @@
 Aplicação para o armazenamento e gerenciamento de senhas em um banco de dados SQLite.
 
 <h1 align="center">
-    <img src="https://img.shields.io/static/v1?label=python&message=linguagem&color=blue&style=for-the-badge&logo=PYTHON"/>
-    <img src="https://img.shields.io/static/v1?label=SQLite&message=BD&color=green&style=for-the-badge"/>
+    <img src="https://img.shields.io/github/license/VictorGM01/CRUD_de_senhas?style=for-the-badge"/>
+    <img src="https://img.shields.io/static/v1?label=linguagem&message=python&color=blue&style=for-the-badge&logo=PYTHON"/>
+    <img src="https://img.shields.io/static/v1?label=BD&message=SQLite&color=purple&style=for-the-badge"/>
 </h1>
 
 ### Funcionalidades :checkered_flag:
