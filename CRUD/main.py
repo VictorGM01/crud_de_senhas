@@ -19,6 +19,11 @@ c.execute('''CREATE TABLE IF NOT EXISTS dados (nome_usuario text, programa text 
 conexao.commit()
 
 
+def cria_usuario(nome: str, senha: str):
+    c.execute(f'INSERT INTO usuario VALUES ("{nome}", "{senha}")')
+    conexao.commit()
+
+
 # função para criar/inserir nova senha
 def insere_valores(programa: str, senha: str):
     c.execute('SELECT programa FROM dados')
