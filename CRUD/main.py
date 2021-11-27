@@ -37,7 +37,9 @@ def cria_usuario(nome: str, senha: str):
 # função para mudança de senha do usuário
 def atualiza_senha_usuario(nome: str, nova_senha: str):
     try:
-        c.execute(f'UPDATE usuario SET senha_user = "{nova_senha}" WHERE nome_user = "{nome}"')
+        senha_bytes = nova_senha.encode('utf-8')
+        senha_64 = base64.b64encode(senha_bytes)
+        c.execute(f'UPDATE usuario SET senha_user = "{senha_64}" WHERE nome_user = "{nome}"')
         conexao.commit()
     except sqlite3.Error:
         print(f'Erro: {sqlite3.Error}')
