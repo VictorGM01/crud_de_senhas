@@ -1,4 +1,5 @@
 import sqlite3
+import base64
 
 from CRUD.excecoes import DelecaoInvalida
 
@@ -50,7 +51,9 @@ def insere_valores(usuario: str, programa: str, senha: str):
         lista_de_programas.append(i[0])
 
     if programa not in lista_de_programas:
-        c.execute(f'INSERT INTO dados VALUES ("{usuario}", "{programa}", "{senha}")')
+        senha_para_bytes = senha.encode(encoding='utf-8')
+        senha_para_b64 = base64.b64encode(senha_para_bytes)
+        c.execute(f'INSERT INTO dados VALUES ("{usuario}", "{programa}", "{senha_para_b64}")')
         conexao.commit()
 
     else:
