@@ -84,7 +84,9 @@ def exclui_valores(programa: str):
 # função para atualizar a senha por meio do nome do programa
 def atualiza_valores(programa: str, nova_senha: str):
     try:
-        c.execute(f'UPDATE dados SET senha = "{nova_senha}" WHERE programa = "{programa}"')
+        senha_bytes = nova_senha.encode('utf-8')
+        senha_b64 = base64.b64encode(senha_bytes)
+        c.execute(f'UPDATE dados SET senha = "{senha_b64}" WHERE programa = "{programa}"')
         conexao.commit()
     except sqlite3.Error:
         print(f'Erro: {sqlite3.Error}')
