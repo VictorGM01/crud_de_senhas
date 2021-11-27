@@ -26,7 +26,9 @@ except sqlite3.Error:
 # função para criar novo usuário (útil para a GUI)
 def cria_usuario(nome: str, senha: str):
     try:
-        c.execute(f'INSERT INTO usuario VALUES ("{nome}", "{senha}")')
+        senha_bytes = senha.encode('utf-8')
+        senha_64 = base64.b64encode(senha_bytes)
+        c.execute(f'INSERT INTO usuario VALUES ("{nome}", "{senha_64}")')
         conexao.commit()
     except sqlite3.Error as erro_sql:
         print(f'Não foi possível criar o usuário. Erro: {erro_sql}')
