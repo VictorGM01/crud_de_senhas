@@ -1,5 +1,6 @@
 import sqlite3
 from cryptography.fernet import Fernet
+import PySimpleGUI as sg
 
 from CRUD.excecoes import DelecaoInvalida
 
@@ -137,3 +138,25 @@ def leitura_de_todas_as_senhas():
 
     except sqlite3.Error:
         print(f'Erro: {sqlite3.Error}')
+
+
+# Interface Gráfica
+class Gerenciador:
+    def __init__(self):
+        self.janela_inicial = self.janela_inicial()
+
+    @staticmethod
+    def janela_inicial():
+        sg.theme('DarkBlack')
+        layout = [
+            [sg.Text('Gerenciador de Senhas', font=('Roboto', 25)),
+             sg.Image(filename=r'icons\password.png')],
+            [sg.Text('', font=('Times New Roman', 9))],
+            [sg.Button('Acessar', size=(12, 1), key='login')],
+            [sg.Text('')],
+            [sg.Button('Criar Conta', size=(12, 1), key='criar conta')],
+            [sg.Text('')],
+            [sg.Text('Desenvolvido por Victor Marques', font=('Times New Roman', 10))]
+        ]
+
+        return sg.Window('Gerenciador de Senhas', layout, element_justification='c', finalize=True)
