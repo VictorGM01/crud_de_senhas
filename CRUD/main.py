@@ -144,6 +144,8 @@ def leitura_de_todas_as_senhas():
 class Gerenciador:
     def __init__(self):
         self.janela_inicial = self.janela_inicial()
+        self.chama_janelas()
+        self.janela_de_login = None
 
     @staticmethod
     def janela_inicial():
@@ -152,7 +154,7 @@ class Gerenciador:
             [sg.Text('Gerenciador de Senhas', font=('Roboto', 25)),
              sg.Image(filename=r'icons\password.png')],
             [sg.Text('', font=('Times New Roman', 9))],
-            [sg.Button('Acessar', size=(12, 1), key='login')],
+            [sg.Button('Login', size=(12, 1), key='login')],
             [sg.Text('')],
             [sg.Button('Criar Conta', size=(12, 1), key='criar conta')],
             [sg.Text('')],
@@ -160,3 +162,36 @@ class Gerenciador:
         ]
 
         return sg.Window('Gerenciador de Senhas', layout, element_justification='c', finalize=True)
+
+    @staticmethod
+    def janela_login():
+        sg.theme('DarkBlack')
+        layout = [
+            [sg.Text('Login', font=('Roboto', 25))],
+            [sg.Text('')],
+            [sg.Text('Insira seu usuário:', font=('Times New Roman', 12), size=(20, 1)),
+             sg.Input('', size=(30, 1), key='user')],
+            [sg.Text('Insira sua senha:', font=('Times New Roman', 12), size=(20, 1)),
+             sg.Input('', size=(30, 1), password_char='*')],
+            [sg.Text('')],
+            [sg.Button('Entrar', size=(10, 1), key='entrar'), sg.Button('Cancelar', size=(10, 1), key='cancelar')],
+            [sg.Text('')],
+        ]
+
+        return sg.Window('Gerenciador de Senhas', layout, element_justification='c', finalize=True)
+
+    def chama_janelas(self):
+        while True:
+            janela, evento, valores = sg.read_all_windows()
+
+            if evento == sg.WINDOW_CLOSED:
+                break
+
+            elif janela == self.janela_inicial:
+
+                if evento == 'login':
+                    self.janela_de_login = self.janela_login()
+                    self.janela_inicial.hide()
+
+
+teste = Gerenciador()
