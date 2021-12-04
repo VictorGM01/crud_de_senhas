@@ -1,5 +1,4 @@
 import sqlite3
-import base64
 from cryptography.fernet import Fernet
 
 from CRUD.excecoes import DelecaoInvalida
@@ -22,6 +21,21 @@ def criptografa_file():
 
     with open('Senhas.bd', 'wb') as cript:
         cript.write(f.encrypt(arquivo_original))
+
+
+def descriptografa_file():
+    with open(
+            r'C:\Users\victo\PycharmProjects\cybersecurity\criptografia\criptografar_arquivo\chave_simetrica.txt', 'rb'
+    ) as f:
+        cr = f.read()
+
+    f = Fernet(cr)
+
+    with open('Senhas.bd', 'rb') as arquivo:
+        criptografado = arquivo.read()
+
+    with open('Senhas.bd', 'wb') as cript:
+        cript.write(f.decrypt(criptografado))
 
 
 # Cria tabela para armazenar informações do usuário
