@@ -1,11 +1,28 @@
 import sqlite3
 import base64
+from cryptography.fernet import Fernet
 
 from CRUD.excecoes import DelecaoInvalida
 
 
 conexao = sqlite3.connect("Senhas.bd")
 c = conexao.cursor()
+
+
+def criptografa_file():
+    with open(
+            r'C:\Users\victo\PycharmProjects\cybersecurity\criptografia\criptografar_arquivo\chave_simetrica.txt', 'rb'
+    ) as f:
+        cr = f.read()
+
+    f = Fernet(cr)
+
+    with open('Senhas.bd', 'rb') as arquivo:
+        arquivo_original = arquivo.read()
+
+    with open('Senhas.bd', 'wb') as cript:
+        cript.write(f.encrypt(arquivo_original))
+
 
 # Cria tabela para armazenar informações do usuário
 try:
@@ -26,9 +43,7 @@ except sqlite3.Error:
 # função para criar novo usuário (útil para a GUI)
 def cria_usuario(nome: str, senha: str):
     try:
-        senha_bytes = senha.encode('utf-8')
-        senha_64 = base64.b64encode(senha_bytes)
-        c.execute(f'INSERT INTO usuario VALUES ("{nome}", "{senha_64}")')
+        c.execute(f'INSERT INTO usuario VALUES ("{nome}", "{senha}")')
         conexao.commit()
     except sqlite3.Error as erro_sql:
         print(f'Não foi possível criar o usuário. Erro: {erro_sql}')
@@ -37,9 +52,7 @@ def cria_usuario(nome: str, senha: str):
 # função para mudança de senha do usuário
 def atualiza_senha_usuario(nome: str, nova_senha: str):
     try:
-        senha_bytes = nova_senha.encode('utf-8')
-        senha_64 = base64.b64encode(senha_bytes)
-        c.execute(f'UPDATE usuario SET senha_user = "{senha_64}" WHERE nome_user = "{nome}"')
+        c.execute(f'UPDATE usuario SET senha_user = "{nova_senha}" WHERE nome_user = "{nome}"')
         conexao.commit()
     except sqlite3.Error:
         print(f'Erro: {sqlite3.Error}')
@@ -55,9 +68,7 @@ def insere_valores(usuario: str, programa: str, senha: str):
         lista_de_programas.append(i[0])
 
     if programa not in lista_de_programas:
-        senha_para_bytes = senha.encode(encoding='utf-8')
-        senha_para_b64 = base64.b64encode(senha_para_bytes)
-        c.execute(f'INSERT INTO dados VALUES ("{usuario}", "{programa}", "{senha_para_b64}")')
+        c.execute(f'INSERT INTO dados VALUES ("{usuario}", "{programa}", "{senha}")')
         conexao.commit()
 
     else:
@@ -84,9 +95,7 @@ def exclui_valores(programa: str):
 # função para atualizar a senha por meio do nome do programa
 def atualiza_valores(programa: str, nova_senha: str):
     try:
-        senha_bytes = nova_senha.encode('utf-8')
-        senha_b64 = base64.b64encode(senha_bytes)
-        c.execute(f'UPDATE dados SET senha = "{senha_b64}" WHERE programa = "{programa}"')
+        c.execute(f'UPDATE dados SET senha = "{nova_senha}" WHERE programa = "{programa}"')
         conexao.commit()
     except sqlite3.Error:
         print(f'Erro: {sqlite3.Error}')
