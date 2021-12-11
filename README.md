@@ -22,6 +22,12 @@ Aplicação para o armazenamento e gerenciamento de senhas em um banco de dados 
     <img src="/assets/insere.png" width="438" height="279"/>
 </h1>
 
+### Pré Requisitos :pencil2:
+Antes de começar, é preciso que você tenha instalado em sua máquina as seguintes ferramentas:
+
+[Git](https://git-scm.com/), [Python3](https://www.python.org/downloads/release/python-390/).
+
+Além disso, é interessante que você tenha um editor para conseguir rodar a aplicação de maneira simplificada. Recomendo o uso do [Pycharm](https://www.jetbrains.com/pycharm/download/#section=windows)
 
 ### Status :chart_with_upwards_trend:
 
