@@ -84,6 +84,7 @@ def insere_valores(usuario: str, programa: str, senha: str):
     if programa not in lista_de_programas:
         c.execute(f'INSERT INTO dados VALUES ("{usuario}", "{programa}", "{senha}")')
         conexao.commit()
+        print('Senha cadastrada com sucesso')
 
     else:
         print(f'A senha para "{programa}" já está cadastrada!')
@@ -101,6 +102,7 @@ def exclui_valores(programa: str):
     if programa in resultados:
         c.execute(f'DELETE FROM dados WHERE programa = "{programa}"')
         conexao.commit()
+        print('Exclusão realizada')
 
     else:
         raise DelecaoInvalida('Não foi possível concluir a deleção')
@@ -167,7 +169,6 @@ def acessar_banco():
             senha_bd = c.fetchall()
 
             if senha == senha_bd[0][0]:
-                print('*************************************Acesso permitido******************************************')
                 print('***********************************************************************************************')
                 print('''Opções:
                 1) Inserir valores
@@ -180,8 +181,25 @@ def acessar_banco():
                 if opcao == 1:
                     programa = input('Insira o nome do programa/software: ')
                     senha = input('Insira a senha do respectivo programa/software: ')
-
                     insere_valores(nome, programa, senha)
+
+                elif opcao == 2:
+                    programa = input('Insira o nome do programa/software: ')
+                    exclui_valores(programa)
+
+                elif opcao == 3:
+                    programa = input('Insira o nome do programa/software: ')
+                    nova_senha = input('Digite a nova senha para atualização: ')
+                    atualiza_valores(programa, nova_senha)
+
+                elif opcao == 4:
+                    print('1) Ler senha específica / 2) Ler todas as senhas salvas')
+                    opcao_escolhida = int(input('Resposta: '))
+                    if opcao_escolhida == 1:
+                        programa = input('Insira o nome do programa/software: ')
+                        leitura_de_valores_especificos(programa)
+                    elif opcao_escolhida == 2:
+                        leitura_de_todas_as_senhas()
 
 
 acessar_banco()
