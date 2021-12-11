@@ -34,7 +34,7 @@ Também é interessante que você, caso prefira, instale um editor/leitor de ban
 ### Status :chart_with_upwards_trend:
 
 <h4 align="center">
-    :heavy_check_mark: Gerenciador de Senhas 🚀 Finalizado :heavy_check_mark:
+    :heavy_check_mark: Gerenciador de Senhas 🚀 Em finalização :heavy_check_mark:
 </h4>
 
 ### Como Rodar a Aplicação ▶
@@ -57,6 +57,15 @@ python main.py
 # Ou, caso prefira, execute a aplicação pela IDE Pycharm
 
 ````
+
+### Tecnologias - Dependências e Libs :hammer_and_wrench:
+
+Para a construção deste projeto foram utilizadas as seguintes ferramentas e bibliotecas:
+
+- [Python](https://www.python.org/downloads/release/python-390/)
+- [Git](https://git-scm.com/)
+- [Sqlite3](https://docs.python.org/3/library/sqlite3.html)
+- [Criptography](https://cryptography.io/en/latest/)
 
 ### Desenvolvedor
 [<img src="https://avatars.githubusercontent.com/u/86068797?s=400&u=043c0b1479770ac997f0cf5a31c986a2815ce810&v=4" width=115 > <br> <sub> Victor G. Marques </sub>](https://github.com/VictorGM01) 
