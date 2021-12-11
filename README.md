@@ -13,6 +13,15 @@ Aplicação para o armazenamento e gerenciamento de senhas em um banco de dados 
 
 - [x] Cadastrar, Atualizar, Excluir e Ler as senhas do banco de dados
 - [x] Cadastrar usuário e senha, para acesso individual à aplicação
+- [x] Implementar Criptografia com chave simétrica
+
+### Demonstração da Aplicação
+<p align="center"> Criação de um usuário e Inserção de valores</p>
+<h1 align="center">
+  <img src="/assets/img.png"/>
+<img src="/assets/insere.png"/>
+</h1>
+
 
 ### Status :chart_with_upwards_trend:
 
