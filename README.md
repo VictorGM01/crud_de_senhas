@@ -15,7 +15,7 @@ Aplicação para o armazenamento e gerenciamento de senhas em um banco de dados 
 - [x] Cadastrar usuário e senha, para acesso individual à aplicação
 - [x] Implementar Criptografia com chave simétrica
 
-### Demonstração da Aplicação
+### Demonstração da Aplicação :camera:  
 <p align="center"> Criação de um usuário e Inserção de valores</p>
 <h1 align="center">
   <img src="/assets/img.png"/>
@@ -26,7 +26,7 @@ Aplicação para o armazenamento e gerenciamento de senhas em um banco de dados 
 ### Status :chart_with_upwards_trend:
 
 <h4 align="center">
-    🚧 Gerenciador de Senhas 🚀 Em Construção 🚧
+    :heavy_check_mark: Gerenciador de Senhas 🚀 Finalizado :heavy_check_mark:
 </h4>
 
 ### Desenvolvedor
