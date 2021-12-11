@@ -186,6 +186,7 @@ def acessar_banco():
                     print('3) Atualizar valores')
                     print('4) Acessar informações')
                     print('5) Fechar')
+                    print('*******************************************************************************************')
 
                     opcao = int(input('Opção escolhida: '))
 
@@ -238,6 +239,9 @@ def acessar_banco():
                                 break
                             elif sair_continuar == 2:
                                 continue
+
+                    elif opcao == 5:
+                        break
 
             else:
                 print('\033[91m' + 'Acessso Negado - Senha incorreta!')
