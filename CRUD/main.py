@@ -9,10 +9,7 @@ c = conexao.cursor()
 
 
 def criptografa_file():
-    with open(
-            r'C:\Users\victo\PycharmProjects\cybersecurity\criptografia\criptografar_arquivo\chave_simetrica.txt', 'rb'
-    ) as f:
-        cr = f.read()
+    cr = '0B8KeSGboeH3H_UT7V7J4PgrZ6PzUDjX9zvOpOyV_xE='
 
     f = Fernet(cr)
 
@@ -24,10 +21,7 @@ def criptografa_file():
 
 
 def descriptografa_file():
-    with open(
-            r'C:\Users\victo\PycharmProjects\cybersecurity\criptografia\criptografar_arquivo\chave_simetrica.txt', 'rb'
-    ) as f:
-        cr = f.read()
+    cr = '0B8KeSGboeH3H_UT7V7J4PgrZ6PzUDjX9zvOpOyV_xE='
 
     f = Fernet(cr)
 
@@ -247,4 +241,4 @@ def acessar_banco():
                 print('\033[91m' + 'Acessso Negado - Senha incorreta!')
 
 
-acessar_banco()
+descriptografa_file()
