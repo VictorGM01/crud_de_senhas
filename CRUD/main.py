@@ -59,6 +59,8 @@ def cria_usuario(nome: str, senha: str):
     try:
         c.execute(f'INSERT INTO usuario VALUES ("{nome}", "{senha}")')
         conexao.commit()
+        print('\033[92m' + 'Usuário cadastrado com sucesso')
+        print('\033[0m' + '')
     except sqlite3.Error as erro_sql:
         print(f'Não foi possível criar o usuário. Erro: {erro_sql}')
 
@@ -68,6 +70,8 @@ def atualiza_senha_usuario(nome: str, nova_senha: str):
     try:
         c.execute(f'UPDATE usuario SET senha_user = "{nova_senha}" WHERE nome_user = "{nome}"')
         conexao.commit()
+        print('\033[92m' + 'Senha atualizada!!')
+        print('\033[0m' + '')
     except sqlite3.Error:
         print(f'Erro: {sqlite3.Error}')
 
@@ -84,8 +88,8 @@ def insere_valores(usuario: str, programa: str, senha: str):
     if programa not in lista_de_programas:
         c.execute(f'INSERT INTO dados VALUES ("{usuario}", "{programa}", "{senha}")')
         conexao.commit()
-        print('Senha cadastrada com sucesso')
-
+        print('\033[92m' + 'Senha cadastrada com sucesso')
+        print('\033[0m' + '')
     else:
         print(f'A senha para "{programa}" já está cadastrada!')
 
@@ -102,7 +106,8 @@ def exclui_valores(programa: str):
     if programa in resultados:
         c.execute(f'DELETE FROM dados WHERE programa = "{programa}"')
         conexao.commit()
-        print('Exclusão realizada')
+        print('\033[92m' + 'Exclusão realizada')
+        print('\033[0m' + '')
 
     else:
         raise DelecaoInvalida('Não foi possível concluir a deleção')
@@ -113,6 +118,8 @@ def atualiza_valores(programa: str, nova_senha: str):
     try:
         c.execute(f'UPDATE dados SET senha = "{nova_senha}" WHERE programa = "{programa}"')
         conexao.commit()
+        print('\033[92m' + 'Senha atualizada')
+        print('\033[0m' + '')
     except sqlite3.Error:
         print(f'Erro: {sqlite3.Error}')
 
@@ -122,7 +129,8 @@ def leitura_de_valores_especificos(programa: str):
     try:
         c.execute(f'SELECT senha FROM dados WHERE programa = "{programa}"')
         resultado = c.fetchall()
-        print(resultado[0][0])
+        print('Senha: ' + '\033[92m' + resultado[0][0])
+        print('\033[0m' + '')
 
     except sqlite3.Error:
         print(f'Erro: {sqlite3.Error}')
@@ -136,6 +144,7 @@ def leitura_de_todas_as_senhas():
 
         for dados in resultado:
             print(f'Programa: {dados[1]} - Senha: {dados[2]}')
+            print('')
 
     except sqlite3.Error:
         print(f'Erro: {sqlite3.Error}')
@@ -154,8 +163,6 @@ def acessar_banco():
         senha = input('Digite sua senha: ')
 
         cria_usuario(nome, senha)
-
-        print('Usuário cadastrado!')
 
     elif escolha == 2:
         nome = input('Digite o nome do seu usuário: ')
