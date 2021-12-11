@@ -1,7 +1,7 @@
 import sqlite3
 from cryptography.fernet import Fernet
 
-from CRUD.excecoes import DelecaoInvalida
+from excecoes import DelecaoInvalida
 
 
 conexao = sqlite3.connect("Senhas.bd")

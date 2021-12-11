@@ -29,11 +29,34 @@ Antes de começar, é preciso que você tenha instalado em sua máquina as segui
 
 Além disso, é interessante que você tenha um editor para conseguir rodar a aplicação de maneira simplificada. Recomendo o uso do [Pycharm](https://www.jetbrains.com/pycharm/download/#section=windows)
 
+Também é interessante que você, caso prefira, instale um editor/leitor de banco de dados SQLite, como o [SqliteMan](https://www.microsoft.com/pt-br/p/sqliteman/9n21tfj4zsv0#activetab=pivot:overviewtab)
+
 ### Status :chart_with_upwards_trend:
 
 <h4 align="center">
     :heavy_check_mark: Gerenciador de Senhas 🚀 Finalizado :heavy_check_mark:
 </h4>
+
+### Como Rodar a Aplicação ▶
+```bash
+# No terminal, clone este repositório:
+git clone <https://github.com/VictorGM01/CRUD_de_senhas>
+
+# Acesse a pasta do projeto
+cd CRUD_de_senhas
+
+# Instale as dependências
+pip install cryptography
+
+# Vá para a pasta CRUD
+cd CRUD
+
+# Execute o arquivo main.py (pelo terminal)
+python main.py
+
+# Ou, caso prefira, execute a aplicação pela IDE Pycharm
+
+````
 
 ### Desenvolvedor
 [<img src="https://avatars.githubusercontent.com/u/86068797?s=400&u=043c0b1479770ac997f0cf5a31c986a2815ce810&v=4" width=115 > <br> <sub> Victor G. Marques </sub>](https://github.com/VictorGM01) 
