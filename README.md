@@ -13,8 +13,6 @@ Aplicação para o armazenamento e gerenciamento de senhas em um banco de dados 
 
 - [x] Cadastrar, Atualizar, Excluir e Ler as senhas do banco de dados
 - [x] Cadastrar usuário e senha, para acesso individual à aplicação
-- [ ] GUI para melhor visualização da aplicação
-- [ ] Cadastrar, Atualizar, Excluir e Ler as senhas do banco de dados, pela GUI
 
 ### Status :chart_with_upwards_trend:
 
