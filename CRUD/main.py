@@ -172,37 +172,65 @@ def acessar_banco():
             senha_bd = c.fetchall()
 
             if senha == senha_bd[0][0]:
-                print('***********************************************************************************************')
-                print('''Opções:
-                1) Inserir valores
-                2) Excluir valores
-                3) Atualizar valores
-                4) Acessar informações''')
+                while True:
+                    print('*******************************************************************************************')
+                    print('1) Inserir valores')
+                    print('2) Excluir valores')
+                    print('3) Atualizar valores')
+                    print('4) Acessar informações')
+                    print('5) Fechar')
 
-                opcao = int(input('Opção escolhida: '))
+                    opcao = int(input('Opção escolhida: '))
 
-                if opcao == 1:
-                    programa = input('Insira o nome do programa/software: ')
-                    senha = input('Insira a senha do respectivo programa/software: ')
-                    insere_valores(nome, programa, senha)
-
-                elif opcao == 2:
-                    programa = input('Insira o nome do programa/software: ')
-                    exclui_valores(programa)
-
-                elif opcao == 3:
-                    programa = input('Insira o nome do programa/software: ')
-                    nova_senha = input('Digite a nova senha para atualização: ')
-                    atualiza_valores(programa, nova_senha)
-
-                elif opcao == 4:
-                    print('1) Ler senha específica / 2) Ler todas as senhas salvas')
-                    opcao_escolhida = int(input('Resposta: '))
-                    if opcao_escolhida == 1:
+                    if opcao == 1:
                         programa = input('Insira o nome do programa/software: ')
-                        leitura_de_valores_especificos(programa)
-                    elif opcao_escolhida == 2:
-                        leitura_de_todas_as_senhas()
+                        senha = input('Insira a senha do respectivo programa/software: ')
+                        insere_valores(nome, programa, senha)
+                        sair_continuar = int(input('1) Sair / 2) Continuar navegando: '))
+                        if sair_continuar == 1:
+                            break
+                        elif sair_continuar == 2:
+                            continue
+
+                    elif opcao == 2:
+                        programa = input('Insira o nome do programa/software: ')
+                        exclui_valores(programa)
+                        sair_continuar = int(input('1) Sair / 2) Continuar navegando: '))
+                        if sair_continuar == 1:
+                            break
+                        elif sair_continuar == 2:
+                            continue
+
+                    elif opcao == 3:
+                        programa = input('Insira o nome do programa/software: ')
+                        nova_senha = input('Digite a nova senha para atualização: ')
+                        atualiza_valores(programa, nova_senha)
+                        sair_continuar = int(input('1) Sair / 2) Continuar navegando: '))
+                        if sair_continuar == 1:
+                            break
+                        elif sair_continuar == 2:
+                            continue
+
+                    elif opcao == 4:
+                        print('1) Ler senha específica / 2) Ler todas as senhas salvas')
+                        opcao_escolhida = int(input('Resposta: '))
+                        if opcao_escolhida == 1:
+                            programa = input('Insira o nome do programa/software: ')
+                            leitura_de_valores_especificos(programa)
+                            sair_continuar = int(input('1) Sair / 2) Continuar navegando: '))
+                            if sair_continuar == 1:
+                                break
+                            elif sair_continuar == 2:
+                                continue
+
+                        elif opcao_escolhida == 2:
+                            leitura_de_todas_as_senhas()
+
+                            sair_continuar = int(input('1) Sair / 2) Continuar navegando: '))
+                            if sair_continuar == 1:
+                                break
+                            elif sair_continuar == 2:
+                                continue
 
             else:
                 print('\033[91m' + 'Acessso Negado - Senha incorreta!')
