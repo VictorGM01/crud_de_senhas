@@ -164,7 +164,10 @@ def acessar_banco():
         c.execute(f'SELECT nome_user FROM usuario WHERE nome_user = "{nome}"')
         nome_bd = c.fetchall()
 
-        if nome == nome_bd[0][0]:
+        if len(nome_bd) == 0:
+            print('\033[91m' + 'Acesso negado - Usuário não cadastrado')
+
+        elif nome == nome_bd[0][0]:
             c.execute(f'SELECT senha_user FROM usuario WHERE nome_user = "{nome}"')
             senha_bd = c.fetchall()
 
@@ -200,6 +203,9 @@ def acessar_banco():
                         leitura_de_valores_especificos(programa)
                     elif opcao_escolhida == 2:
                         leitura_de_todas_as_senhas()
+
+            else:
+                print('\033[91m' + 'Acessso Negado - Senha incorreta!')
 
 
 acessar_banco()
