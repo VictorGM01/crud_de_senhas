@@ -1,13 +1,13 @@
 # Gerenciador de Senhas
 
 ## Tabela de Conteúdos
-* [Descrição](#descrio-do-projeto)
+* [Descrição](#descrição-do-projeto)
 * [Funcionalidades](#funcionalidades-)
-* [Demonstração da Aplicação](#demonstrao-da-aplicao)
-* [Pré Requisitos](#pr-requisitos-pencil2)
+* [Demonstração da Aplicação](#demonstração-da-aplicação)
+* [Pré Requisitos](#pré-requisitos-pencil2)
 * [Status](#status-chart_with_upwards_trend)
-* [Como Rodar a Aplicação](#como-rodar-a-aplicao-)
-* [Tecnologias](#tecnologias---dependncias-e-libs-hammer_and_wrench)
+* [Como Rodar a Aplicação](#como-rodar-a-aplicação-)
+* [Tecnologias](#tecnologias---dependências-e-libs-hammer_and_wrenchh)
 * [Desenvolvedor](#desenvolvedor)
 
 ### Descrição do Projeto
