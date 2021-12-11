@@ -155,3 +155,33 @@ def acessar_banco():
 
         print('Usuário cadastrado!')
 
+    elif escolha == 2:
+        nome = input('Digite o nome do seu usuário: ')
+        senha = input('Digite a sua senha: ')
+
+        c.execute(f'SELECT nome_user FROM usuario WHERE nome_user = "{nome}"')
+        nome_bd = c.fetchall()
+
+        if nome == nome_bd[0][0]:
+            c.execute(f'SELECT senha_user FROM usuario WHERE nome_user = "{nome}"')
+            senha_bd = c.fetchall()
+
+            if senha == senha_bd[0][0]:
+                print('*************************************Acesso permitido******************************************')
+                print('***********************************************************************************************')
+                print('''Opções:
+                1) Inserir valores
+                2) Excluir valores
+                3) Atualizar valores
+                4) Acessar informações''')
+
+                opcao = int(input('Opção escolhida: '))
+
+                if opcao == 1:
+                    programa = input('Insira o nome do programa/software: ')
+                    senha = input('Insira a senha do respectivo programa/software: ')
+
+                    insere_valores(nome, programa, senha)
+
+
+acessar_banco()
