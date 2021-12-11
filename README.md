@@ -18,8 +18,8 @@ Aplicação para o armazenamento e gerenciamento de senhas em um banco de dados 
 ### Demonstração da Aplicação :camera:  
 <p align="center"> Criação de um usuário e Inserção de valores</p>
 <h1 align="center">
-  <img src="/assets/img.png"/>
-<img src="/assets/insere.png"/>
+    <img src="/assets/img.png"/>
+    <img src="/assets/insere.png" width="438" height="279"/>
 </h1>
 
 
