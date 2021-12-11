@@ -7,7 +7,7 @@
 * [Pré Requisitos](#pré-requisitos-pencil2)
 * [Status](#status-chart_with_upwards_trend)
 * [Como Rodar a Aplicação](#como-rodar-a-aplicação-)
-* [Tecnologias](#tecnologias---dependências-e-libs-hammer_and_wrenchh)
+* [Tecnologias](#tecnologias---dependências-e-libs-hammer_and_wrench)
 * [Desenvolvedor](#desenvolvedor)
 
 ### Descrição do Projeto
