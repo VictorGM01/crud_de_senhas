@@ -1,6 +1,5 @@
 import sqlite3
 from cryptography.fernet import Fernet
-import PySimpleGUI as sg
 
 from CRUD.excecoes import DelecaoInvalida
 
@@ -138,3 +137,21 @@ def leitura_de_todas_as_senhas():
 
     except sqlite3.Error:
         print(f'Erro: {sqlite3.Error}')
+
+
+# Acesso ao banco
+def acessar_banco():
+    print('''Opções:
+    1) Cadastrar usuário
+    2) Acessar banco de dados''')
+
+    escolha = int(input('Opção escolhida: '))
+
+    if escolha == 1:
+        nome = input('Digite o nome do usuário: ')
+        senha = input('Digite sua senha: ')
+
+        cria_usuario(nome, senha)
+
+        print('Usuário cadastrado!')
+
