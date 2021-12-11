@@ -2,15 +2,15 @@
 
 ## Tabela de Conteúdos
 * [Descrição](#descrio-do-projeto)
-* [Funcionalidades](#funcionalidades-checkered_flag)
-* [Demonstração da Aplicação](#demonstrao-da-aplicao-camera)
+* [Funcionalidades](#funcionalidades-)
+* [Demonstração da Aplicação](#demonstrao-da-aplicao)
 * [Pré Requisitos](#pr-requisitos-pencil2)
 * [Status](#status-chart_with_upwards_trend)
 * [Como Rodar a Aplicação](#como-rodar-a-aplicao-)
 * [Tecnologias](#tecnologias---dependncias-e-libs-hammer_and_wrench)
 * [Desenvolvedor](#desenvolvedor)
 
-## Descrição do Projeto
+### Descrição do Projeto
 Aplicação para o armazenamento e gerenciamento de senhas em um banco de dados SQLite.
 
 <h1 align="center">
@@ -19,13 +19,13 @@ Aplicação para o armazenamento e gerenciamento de senhas em um banco de dados 
     <img src="https://img.shields.io/static/v1?label=BD&message=SQLite&color=purple&style=for-the-badge"/>
 </h1>
 
-### Funcionalidades :checkered_flag:
+### Funcionalidades 🏁:
 
 - [x] Cadastrar, Atualizar, Excluir e Ler as senhas do banco de dados
 - [x] Cadastrar usuário e senha, para acesso individual à aplicação
 - [x] Implementar Criptografia com chave simétrica
 
-### Demonstração da Aplicação :camera:  
+### Demonstração da Aplicação
 <p align="center"> Criação de um usuário e Inserção de valores</p>
 <h1 align="center">
     <img src="/assets/img.png"/>
