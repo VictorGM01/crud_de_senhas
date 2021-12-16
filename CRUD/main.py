@@ -146,7 +146,6 @@ def leitura_de_todas_as_senhas():
 
 # Acesso ao banco
 def acessar_banco():
-    criptografa_file()
     print('''Opções:
     1) Cadastrar usuário
     2) Acessar banco de dados''')
@@ -157,11 +156,9 @@ def acessar_banco():
         nome = input('Digite o nome do usuário: ')
         senha = input('Digite sua senha: ')
 
-        descriptografa_file()
         cria_usuario(nome, senha)
 
     elif escolha == 2:
-        descriptografa_file()
         nome = input('Digite o nome do seu usuário: ')
         senha = input('Digite a sua senha: ')
 
@@ -244,4 +241,6 @@ def acessar_banco():
                 print('\033[91m' + 'Acessso Negado - Senha incorreta!')
 
 
+# descriptografa_file()  # Recomendado caso você tenha criptografado o banco após utilizar
 acessar_banco()
+# criptografa_file()  # Descomente essa linha sempre que fechar a conexão com o banco
